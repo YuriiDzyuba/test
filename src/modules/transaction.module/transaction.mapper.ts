@@ -6,6 +6,8 @@ export class TransactionMapper {
   }
 
   mapTransactionEntitiesToTransactions(transactions: TransactionEntity[]) {
-    return transactions.map((transaction) => this.mapTransactionEntityToTransaction(transaction));
+    return transactions.map((transaction) =>
+      this.mapTransactionEntityToTransaction(transaction),
+    );
   }
 }

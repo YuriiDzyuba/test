@@ -7,7 +7,9 @@ import { CategoryRepository } from './category.repository';
 export class CategoryService {
   constructor(private readonly categoryRepository: CategoryRepository) {}
   async createCategory(createCategoryDto: CreateCategoryDto) {
-    const newCategory = await this.categoryRepository.createCategory(createCategoryDto);
+    const newCategory = await this.categoryRepository.createCategory(
+      createCategoryDto,
+    );
     return newCategory;
   }
 
@@ -17,11 +19,16 @@ export class CategoryService {
   }
 
   async findOneCategory(categoryId: string) {
-    const foundedCategory = await this.categoryRepository.findOneCategory(categoryId);
+    const foundedCategory = await this.categoryRepository.findOneCategory(
+      categoryId,
+    );
     return foundedCategory;
   }
 
-  async updateCategory(categoryId: string, updateCategoryDto: UpdateCategoryDto) {
+  async updateCategory(
+    categoryId: string,
+    updateCategoryDto: UpdateCategoryDto,
+  ) {
     const updatedCategory = await this.categoryRepository.updateCategory(
       categoryId,
       updateCategoryDto,

@@ -32,7 +32,9 @@ export class CategoryController {
   @ApiResponse(createCategory.apiResponse)
   @Post()
   async createCategory(@Body() createCategoryDto: CreateCategoryDto) {
-    const newCategory = await this.categoryService.createCategory(createCategoryDto);
+    const newCategory = await this.categoryService.createCategory(
+      createCategoryDto,
+    );
     return this.categoryPresenter.mapCategoryResponse(newCategory);
   }
 
@@ -48,7 +50,9 @@ export class CategoryController {
   @ApiResponse(findOneCategory.apiResponse)
   @Get(':categoryId')
   async findOneCategory(@Param('categoryId') categoryId: string) {
-    const foundedCategory = await this.categoryService.findOneCategory(categoryId);
+    const foundedCategory = await this.categoryService.findOneCategory(
+      categoryId,
+    );
     return this.categoryPresenter.mapCategoryResponse(foundedCategory);
   }
 
@@ -70,7 +74,9 @@ export class CategoryController {
   @ApiResponse(removeCategory.apiResponse)
   @Delete(':categoryId')
   async removeCategory(@Param('categoryId') categoryId: string) {
-    const removedCategory = await this.categoryService.removeCategory(categoryId);
+    const removedCategory = await this.categoryService.removeCategory(
+      categoryId,
+    );
     return this.categoryPresenter.mapCategoryResponse(removedCategory);
   }
 }

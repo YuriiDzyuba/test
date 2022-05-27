@@ -1,4 +1,4 @@
-import {TransactionEntity} from "../../transaction.module/entities/transaction.entity";
+import { TransactionEntity } from '../../transaction.module/entities/transaction.entity';
 
 export type Category = {
   categoryId: string;

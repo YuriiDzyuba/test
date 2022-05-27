@@ -6,6 +6,8 @@ export class CategoryMapper {
   }
 
   mapCategoryEntitiesToCategorys(categorys: CategoryEntity[]) {
-    return categorys.map((category) => this.mapCategoryEntityToCategory(category));
+    return categorys.map((category) =>
+      this.mapCategoryEntityToCategory(category),
+    );
   }
 }

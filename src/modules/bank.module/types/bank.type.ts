@@ -5,4 +5,4 @@ export type Bank = {
   description: string;
   createdAt: Date;
   updatedAt: Date;
-}
+};

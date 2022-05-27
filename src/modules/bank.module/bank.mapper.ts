@@ -2,7 +2,7 @@ import { BankEntity } from './entities/bank.entity';
 
 export class BankMapper {
   mapBankEntityToBank(bank: BankEntity) {
-    return {bank};
+    return { bank };
   }
 
   mapBankEntitiesToBanks(banks: BankEntity[]) {

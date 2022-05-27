@@ -17,10 +17,10 @@ async function bootstrap() {
 
   const swaggerUrl = `${GLOBAL_PREFIX || 'main-api'}/docs`;
   const config = new DocumentBuilder()
-      .setTitle(`${NAME}`)
-      .setDescription('app service')
-      .setVersion('1.0')
-      .build();
+    .setTitle(`${NAME}`)
+    .setDescription('app service')
+    .setVersion('1.0')
+    .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup(swaggerUrl, app, document);
 

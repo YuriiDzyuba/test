@@ -9,10 +9,10 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import {CostEnum} from "../types/cost.enum";
-import {BankEntity} from "../../bank.module/entities/bank.entity";
-import {CategoryEntity} from "../../category.module/entities/category.entity";
-import {Category} from "../../category.module/types/category.type";
+import { CostEnum } from '../types/cost.enum';
+import { BankEntity } from '../../bank.module/entities/bank.entity';
+import { CategoryEntity } from '../../category.module/entities/category.entity';
+import { Category } from '../../category.module/types/category.type';
 
 @Entity({ name: 'transaction' })
 export class TransactionEntity implements Transaction {

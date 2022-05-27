@@ -15,7 +15,9 @@ export class CategoryRepository {
 
   async createCategory(categoryToSave: CreateCategoryDto) {
     const newCategory = await this.category.save(categoryToSave);
-    return newCategory ? this.categoryMapper.mapCategoryEntityToCategory(newCategory) : null;
+    return newCategory
+      ? this.categoryMapper.mapCategoryEntityToCategory(newCategory)
+      : null;
   }
 
   async findAllCategorys() {

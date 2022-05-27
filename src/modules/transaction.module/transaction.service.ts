@@ -7,25 +7,33 @@ import { TransactionRepository } from './transaction.repository';
 export class TransactionService {
   constructor(private readonly transactionRepository: TransactionRepository) {}
   async createTransaction(createTransactionDto: CreateTransactionDto) {
-    const newTransaction = await this.transactionRepository.createTransaction(createTransactionDto);
+    const newTransaction = await this.transactionRepository.createTransaction(
+      createTransactionDto,
+    );
     return newTransaction;
   }
 
   async findAllTransactions() {
-    const foundedTransactions = await this.transactionRepository.findAllTransactions();
+    const foundedTransactions =
+      await this.transactionRepository.findAllTransactions();
     return foundedTransactions;
   }
 
   async findOneTransaction(transactionId: string) {
-    const foundedTransaction = await this.transactionRepository.findOneTransaction(transactionId);
+    const foundedTransaction =
+      await this.transactionRepository.findOneTransaction(transactionId);
     return foundedTransaction;
   }
 
-  async updateTransaction(transactionId: string, updateTransactionDto: UpdateTransactionDto) {
-    const updatedTransaction = await this.transactionRepository.updateTransaction(
-      transactionId,
-      updateTransactionDto,
-    );
+  async updateTransaction(
+    transactionId: string,
+    updateTransactionDto: UpdateTransactionDto,
+  ) {
+    const updatedTransaction =
+      await this.transactionRepository.updateTransaction(
+        transactionId,
+        updateTransactionDto,
+      );
     return updatedTransaction;
   }
 

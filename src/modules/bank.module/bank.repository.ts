@@ -1,4 +1,3 @@
-import { CreateBankDto } from './dto/create.bank.dto';
 import { BankEntity } from './entities/bank.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -12,6 +11,13 @@ export class BankRepository {
     private readonly bank: Repository<BankEntity>,
     readonly bankMapper: BankMapper,
   ) {}
+
+  async findBankByName(bankName: string) {
+    const foundedBank = await this.bank.findOne({ name: bankName });
+    return foundedBank
+      ? this.bankMapper.mapBankEntityToBank(foundedBank)
+      : null;
+  }
 
   async createBank(bankToSave: BankEntity) {
     const newBank = await this.bank.save(bankToSave);

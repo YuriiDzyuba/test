@@ -4,7 +4,8 @@ import {
   Body,
   Patch,
   Param,
-  Delete, Post,
+  Delete,
+  Post,
 } from '@nestjs/common';
 import { TransactionService } from './transaction.service';
 import { CreateTransactionDto } from './dto/create.transaction.dto';
@@ -31,7 +32,9 @@ export class TransactionController {
   @ApiResponse(createTransaction.apiResponse)
   @Post()
   async createTransaction(@Body() createTransactionDto: CreateTransactionDto) {
-    const newTransaction = await this.transactionService.createTransaction(createTransactionDto);
+    const newTransaction = await this.transactionService.createTransaction(
+      createTransactionDto,
+    );
     return this.transactionPresenter.mapTransactionResponse(newTransaction);
   }
 
@@ -39,15 +42,20 @@ export class TransactionController {
   @ApiResponse(findAllTransactions.apiResponse)
   @Get()
   async findAllTransactions() {
-    const foundedTransactions = await this.transactionService.findAllTransactions();
-    return this.transactionPresenter.mapMenuTransactionResponse(foundedTransactions);
+    const foundedTransactions =
+      await this.transactionService.findAllTransactions();
+    return this.transactionPresenter.mapMenuTransactionResponse(
+      foundedTransactions,
+    );
   }
 
   @ApiOperation(findOneTransaction.apiOperation)
   @ApiResponse(findOneTransaction.apiResponse)
   @Get(':transactionId')
   async findOneTransaction(@Param('transactionId') transactionId: string) {
-    const foundedTransaction = await this.transactionService.findOneTransaction(transactionId);
+    const foundedTransaction = await this.transactionService.findOneTransaction(
+      transactionId,
+    );
     return this.transactionPresenter.mapTransactionResponse(foundedTransaction);
   }
 
@@ -69,7 +77,9 @@ export class TransactionController {
   @ApiResponse(removeTransaction.apiResponse)
   @Delete(':transactionId')
   async removeTransaction(@Param('transactionId') transactionId: string) {
-    const removedTransaction = await this.transactionService.removeTransaction(transactionId);
+    const removedTransaction = await this.transactionService.removeTransaction(
+      transactionId,
+    );
     return this.transactionPresenter.mapTransactionResponse(removedTransaction);
   }
 }

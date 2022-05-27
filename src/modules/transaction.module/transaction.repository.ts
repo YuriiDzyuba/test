@@ -15,20 +15,28 @@ export class TransactionRepository {
 
   async createTransaction(transactionToSave: CreateTransactionDto) {
     const newTransaction = await this.transaction.save(transactionToSave);
-    return newTransaction ? this.transactionMapper.mapTransactionEntityToTransaction(newTransaction) : null;
+    return newTransaction
+      ? this.transactionMapper.mapTransactionEntityToTransaction(newTransaction)
+      : null;
   }
 
   async findAllTransactions() {
     const foundedTransactions = await this.transaction.find();
     return foundedTransactions
-      ? this.transactionMapper.mapTransactionEntitiesToTransactions(foundedTransactions)
+      ? this.transactionMapper.mapTransactionEntitiesToTransactions(
+          foundedTransactions,
+        )
       : [];
   }
 
   async findOneTransaction(transactionId: string) {
-    const foundedTransaction = await this.transaction.findOne({ transactionId });
+    const foundedTransaction = await this.transaction.findOne({
+      transactionId,
+    });
     return foundedTransaction
-      ? this.transactionMapper.mapTransactionEntityToTransaction(foundedTransaction)
+      ? this.transactionMapper.mapTransactionEntityToTransaction(
+          foundedTransaction,
+        )
       : null;
   }
 

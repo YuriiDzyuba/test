@@ -7,8 +7,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import {TransactionEntity} from "../../transaction.module/entities/transaction.entity";
-import {Transaction} from "../../transaction.module/types/transaction.type";
+import { TransactionEntity } from '../../transaction.module/entities/transaction.entity';
+import { Transaction } from '../../transaction.module/types/transaction.type';
 
 @Entity({ name: 'categorys' })
 export class CategoryEntity implements Category {
