@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import config from './config/config';
-import {DatabaseConfig} from "./config/database.config";
+import { DatabaseConfig } from "./config/database.config";
+import {BankModule} from "./modules/bank.module/bank.module";
+import {TransactionModule} from "./modules/transaction.module/transaction.module";
+import {CategoryModule} from "./modules/category.module/category.module";
 
 @Module({
   imports: [
@@ -17,8 +18,9 @@ import {DatabaseConfig} from "./config/database.config";
       imports: [ConfigModule],
       useClass: DatabaseConfig,
     }),
+      BankModule,
+      TransactionModule,
+      CategoryModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
